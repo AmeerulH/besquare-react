@@ -2,16 +2,11 @@ import React from "react";
 import logo from "../logo.svg";
 import { useEffect, useState } from "react";
 
-const About = () => {
+const Fetch = () => {
   const [price, setPrice] = useState("0");
-  const [refresh, setRefresh] = useState(true);
-
-  function Refresh() {
-    setRefresh(true);
-  }
 
   useEffect(() => {
-    if (refresh) {
+    const getData = setInterval(() => {
       fetch("https://api.coindesk.com/v1/bpi/currentprice.json")
         .then((res) => {
           return res.json();
@@ -19,19 +14,19 @@ const About = () => {
         .then((resJson) => {
           setPrice(resJson.bpi.USD.rate);
         });
-      setRefresh(false);
-    }
-  }, [refresh]);
+    }, 10000);
+
+    return () => clearInterval(getData);
+  }, []);
 
   return (
     <div className="App">
       <div className="App-header">
-        <h1>BTC Price</h1>
+        <h1>Interval BTC Price</h1>
         <p id="data-display">${price}</p>
-        <button onClick={Refresh}>Refresh</button>
       </div>
     </div>
   );
 };
 
-export default About;
+export default Fetch;

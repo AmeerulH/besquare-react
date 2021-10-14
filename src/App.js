@@ -11,10 +11,10 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <Start />
+      {/* <Start />
       <Test arrayTest={[1, 2, 3]} greetings="Props" />
       <Third />
-      {/* <BoxComponent colour="red" name="Ameerul" /> */}
+      <BoxComponent colour="red" name="Ameerul" /> */}
     </div>
   );
 }
