@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Test from "./components/Test";
+import Start from "./components/Start";
+import Third from "./components/Third";
+import BoxComponent from "./components/BoxComponent";
+import Navbar from "./components/Navbar";
+import SwitchPage from "./components/SwitchPage";
+import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <Start />
+      <Test arrayTest={[1, 2, 3]} greetings="Props" />
+      <Third />
+      {/* <BoxComponent colour="red" name="Ameerul" /> */}
     </div>
   );
 }
